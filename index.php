@@ -1,7 +1,3 @@
-<?php
-require_once('view/total_supplied_products.php');
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,17 +11,26 @@ require_once('view/total_supplied_products.php');
     <title>Products</title>
   </head>
   <body>
-    <h1>Products</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+            <h1>Products</h1>
 
-    <?php
+            <p>
+                <a href="./">Show All Products</a>
+            </p>
 
-    $model = new Model("localhost", "root", "", "supply");
+            <?php
+            require_once("Controller.php");
 
-    viewTotalSuppliedProducts($model);
+            $controller = new Controller();
+            $controller->route(isset($_GET["action"]) ? $_GET["action"] : NULL);
+            ?>
 
-    $model->closeConnection();
+            </div>
+        </div>
+    </div>
 
-    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

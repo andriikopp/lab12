@@ -1,8 +1,8 @@
 <?php
 
-function viewTotalSuppliedProducts($model) {
+function viewSuppliedProductsByPriceRange($model) {
 	
-    $result = $model->getTotalSuppliedProducts();
+    $result = $model->getTotalSuppliedProductsByPriceRange($_GET["fromPrice"], $_GET["toPrice"]);
 
     if ($result->num_rows > 0) {
 
